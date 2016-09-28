@@ -1,0 +1,15 @@
+{
+  "name": "SistemaBiblioteca",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}

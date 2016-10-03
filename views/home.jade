@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div.container
+		div.row
+			div.col-sm-6.col-md-6.col-md-offset-3
+				#user
+					h1.text-center.login-title Bienvenido #{user.firstName}. Verifica Tus Datos:
+						div.signup-wall
+							ul.user-details
+								li Usuario ---> #{user.username}
+								li Contraseña    ---> #{user.email}
+								li Nombres ---> #{user.firstName} 
+								li Apellidos ---> #{user.lastName}
+						a(href='/signout', class='text-center new-account') Salir

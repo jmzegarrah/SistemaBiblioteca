@@ -1,0 +1,17 @@
+<h1 ng-hide="vm.isLoggedIn">Libro info</h1>
+<h1 ng-show="vm.isLoggedIn">Add/edit libro</h1>
+
+<form>
+    <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" ng-model="libro.title" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="libro.description"></textarea>
+    </div>
+    <input ng-show="vm.isLoggedIn" type="button" class="btn btn-primary" value="Save" ng-click="save()" />
+    <p>
+        <a href="/#/">Back</a>
+    </p>
+</form>

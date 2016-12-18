@@ -1,0 +1,29 @@
+<h1>Libros</h1>
+<h1>Agregar / Editar Libros</h1>
+
+<form>
+    <div class="form-group">
+        <label>Titulo</label>
+        <input class="form-control" ng-model="libro.titulo" />
+    </div>
+    <div class="form-group">
+        <label>autor</label>
+        <input class="form-control" ng-model="libro.autor"/>
+    </div>
+    <div class="form-group">
+        <label>editorial</label>
+        <input class="form-control" ng-model="libro.editorial"/>
+    </div>
+    <div class="form-group">
+        <label>cantidad</label>
+        <input class="form-control" ng-model="libro.cantidad"/>
+    </div>
+    <div class="form-group">
+        <label>categoria</label>
+        <input class="form-control" ng-model="libro.categoria"/>
+    </div>
+    <input type="button" class="btn btn-primary" value="Save" ng-click="save()" />
+    <p>
+        <a href="/#/">Back</a>
+    </p>
+</form>

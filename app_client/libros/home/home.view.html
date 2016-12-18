@@ -1,0 +1,14 @@
+<h1>Libros</h1>
+<p>
+    <a href="/#/add-libro">Agregar Libro</a>
+</p>
+<ul>
+    <li ng-repeat='libro in libros'>
+        <a href="/#/libro/{{libro._id}}">
+      {{libro.titulo}}
+    </a>
+        <a href="/#/libro/delete/{{libro._id}}">
+            <i class="glyphicon glyphicon-remove">&nbsp;</i>
+        </a>
+    </li>
+</ul>

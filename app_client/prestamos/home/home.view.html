@@ -1,0 +1,14 @@
+<h1>prestamos</h1>
+<p>
+    <a href="/#/add-prestamo">Agregar prestamo</a>
+</p>
+<ul>
+    <li ng-repeat='prestamo in prestamos'>
+        <a href="/#/prestamo/{{prestamo._id}}">
+      {{prestamo.titulo}}
+    </a>
+        <a href="/#/prestamo/delete/{{prestamo._id}}">
+            <i class="glyphicon glyphicon-remove">&nbsp;</i>
+        </a>
+    </li>
+</ul>

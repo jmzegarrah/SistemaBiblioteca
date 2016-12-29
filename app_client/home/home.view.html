@@ -1,21 +1,16 @@
-<h1>Home Page</h1>
+<h1>Libros</h1>
 <p>
-    <a ng-show="vm.isLoggedIn" href="/#/libros">Add a libro</a>
+    <a ng-show="vm.isLoggedIn" href="/#/libros">Libro</a>
 </p>
-<ul>
-    <li ng-repeat='libro in libros'>
-        <a href="/#/libro/{{libro._id}}">
-      {{libro.title}}
-    </a>
-        <a ng-show="vm.isLoggedIn" href="/#/libro/delete/{{libro._id}}">
-            <i class="glyphicon glyphicon-remove">&nbsp;</i>
-        </a>
-    </li>
-</ul>
+
 <p>
-    <a ng-hide="vm.isLoggedIn" href="/#login">Sign in</a>
-    <input ng-show="vm.isLoggedIn" type="button" class="btn btn-primary" value="Log out" ng-click="vm.logout()" />
+<a ng-show="vm.isLoggedIn" href="/#/prestamos">Prestamo</a>
+</p>
+
+<p>
+    <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a>
+    <input ng-show="vm.isLoggedIn" type="button" class="btn btn-primary" value="Salir" ng-click="vm.logout()" />
 </p>
 <p>
-    <a ng-hide="vm.isLoggedIn" href="/#register">Register</a>
+    <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
 </p>

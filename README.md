@@ -1,2 +1,1 @@
-Sistema de Biblioteca
-INP-Unsa
+Sistema Biblioteca

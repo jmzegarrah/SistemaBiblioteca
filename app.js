@@ -25,9 +25,11 @@ app.set('view engine', 'jade');
 var appClientFiles = [
     'app_client/app.js',
     'app_client/home/home.controller.js',
+    'app_client/libros/home/home.controller.js',
     'app_client/libros/form/add-libro.controller.js',
     'app_client/libros/form/edit-libro.controller.js',
     'app_client/libros/delete/delete-libro.controller.js',
+    'app_client/prestamos/home/home.controller.js',
     'app_client/prestamos/form/add-prestamo.controller.js',
     'app_client/prestamos/form/edit-prestamo.controller.js',
     'app_client/prestamos/delete/delete-prestamo.controller.js',

@@ -2,32 +2,35 @@
 
     angular
         .module('Biblioteca')
-        .controller('deletelibroCtrl', deletelibroCtrl);
+        .controller('deleteLibroCtrl', deleteLibroCtrl);
 
-    deletelibroCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams'];
+    deleteLibroCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams', 'authentication'];
 
-    function deletelibroCtrl($scope, $resource, $location, $routeParams) {
+    function deleteLibroCtrl($scope, $resource, $location, $routeParams, authentication) {
         var vm = this;
 
-        vm.libros = $resource('/api/libros/:id', {
+        vm.Libros = $resource('/api/libros/:id', {
             id: '@_id'
         }, {
             delete: {
                 method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
-        vm.libros.get({
+        vm.Libros.get({
             id: $routeParams.id
         }, function(libro) {
             $scope.libro = libro;
         });
 
         $scope.delete = function() {
-            vm.libros.delete({
+            vm.Libros.delete({
                 id: $routeParams.id
             }, function(libro) {
-                $location.path('/libros/');
+                $location.path('/#/libros/');
             });
         };
     }

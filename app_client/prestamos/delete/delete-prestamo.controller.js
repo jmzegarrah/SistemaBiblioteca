@@ -2,32 +2,35 @@
 
     angular
         .module('Biblioteca')
-        .controller('deleteprestamoCtrl', deleteprestamoCtrl);
+        .controller('deletePrestamoCtrl', deletePrestamoCtrl);
 
-    deleteprestamoCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams'];
+    deletePrestamoCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams', 'authentication'];
 
-    function deleteprestamoCtrl($scope, $resource, $location, $routeParams) {
+    function deletePrestamoCtrl($scope, $resource, $location, $routeParams, authentication) {
         var vm = this;
 
-        vm.prestamos = $resource('/api/prestamos/:id', {
+        vm.Prestamos = $resource('/api/prestamos/:id', {
             id: '@_id'
         }, {
             delete: {
                 method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
-        vm.prestamos.get({
+        vm.Prestamos.get({
             id: $routeParams.id
         }, function(prestamo) {
             $scope.prestamo = prestamo;
         });
 
         $scope.delete = function() {
-            vm.prestamos.delete({
+            vm.Prestamos.delete({
                 id: $routeParams.id
             }, function(prestamo) {
-                $location.path('/prestamos/');
+                $location.path('/#/prestamos/');
             });
         };
     }

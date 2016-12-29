@@ -2,30 +2,35 @@
 
     angular
         .module('Biblioteca')
-        .controller('editlibroCtrl', editlibroCtrl);
+        .controller('editLibroCtrl', editLibroCtrl);
 
-    editlibroCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams'];
+    editLibroCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams', 'authentication'];
 
-    function editlibroCtrl($scope, $resource, $location, $routeParams) {
+    function editLibroCtrl($scope, $resource, $location, $routeParams, authentication) {
         var vm = this;
 
-        vm.libros = $resource('/api/libros/:id', {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.Libros = $resource('/api/libros/:id', {
             id: '@_id'
         }, {
             update: {
-                method: 'PUT'
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
-        vm.libros.get({
+        vm.Libros.get({
             id: $routeParams.id
         }, function(libro) {
             $scope.libro = libro;
         });
 
         $scope.save = function() {
-            vm.libros.update($scope.libro, function() {
-                $location.path('/#/');
+            vm.Libros.update($scope.libro, function() {
+                $location.path('/#/libros');
             });
         };
     }

@@ -229,7 +229,7 @@ DocumentArray.prototype.cast = function(value, doc, init, prev, options) {
     // Check if the document has a different schema (re gh-3701)
     if ((value[i] instanceof Subdocument) &&
         value[i].schema !== this.casterConstructor.schema) {
-      value[i] = value[i].toObject({transform: false});
+      value[i] = value[i].toObject({ transform: false, virtuals: false });
     }
     if (!(value[i] instanceof Subdocument) && value[i]) {
       if (init) {
@@ -242,9 +242,8 @@ DocumentArray.prototype.cast = function(value, doc, init, prev, options) {
         subdoc = new this.casterConstructor(null, value, true, selected, i);
         value[i] = subdoc.init(value[i]);
       } else {
-        try {
+        if (prev && (subdoc = prev.id(value[i]._id))) {
           subdoc = prev.id(value[i]._id);
-        } catch (e) {
         }
 
         if (prev && subdoc) {

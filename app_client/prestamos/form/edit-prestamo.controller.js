@@ -2,30 +2,35 @@
 
     angular
         .module('Biblioteca')
-        .controller('editprestamoCtrl', editprestamoCtrl);
+        .controller('editPrestamoCtrl', editPrestamoCtrl);
 
-    editprestamoCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams'];
+    editPrestamoCtrl.$inject = ['$scope', '$resource', '$location', '$routeParams', 'authentication'];
 
-    function editprestamoCtrl($scope, $resource, $location, $routeParams) {
+    function editPrestamoCtrl($scope, $resource, $location, $routeParams, authentication) {
         var vm = this;
 
-        vm.prestamos = $resource('/api/prestamos/:id', {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.Prestamos = $resource('/api/prestamos/:id', {
             id: '@_id'
         }, {
             update: {
-                method: 'PUT'
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
-        vm.prestamos.get({
+        vm.Prestamos.get({
             id: $routeParams.id
         }, function(prestamo) {
             $scope.prestamo = prestamo;
         });
 
         $scope.save = function() {
-            vm.prestamos.update($scope.prestamo, function() {
-                $location.path('/#/');
+            vm.Prestamos.update($scope.prestamo, function() {
+                $location.path('/#/prestamos');
             });
         };
     }

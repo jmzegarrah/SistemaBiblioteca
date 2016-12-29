@@ -1,14 +1,17 @@
-<h1>prestamos</h1>
+<h1>Libros</h1>
 <p>
-    <a href="/#/add-prestamo">Agregar prestamo</a>
+    <a ng-show="vm.isLoggedIn" href="/#/add-prestamo">Add a prestamo</a>
 </p>
 <ul>
     <li ng-repeat='prestamo in prestamos'>
         <a href="/#/prestamo/{{prestamo._id}}">
-      {{prestamo.titulo}}
+      {{prestamo.codigo}}
     </a>
-        <a href="/#/prestamo/delete/{{prestamo._id}}">
+        <a ng-show="vm.isLoggedIn" href="/#/prestamo/delete/{{prestamo._id}}">
             <i class="glyphicon glyphicon-remove">&nbsp;</i>
         </a>
     </li>
 </ul>
+<p>
+<a ng-show="vm.isLoggedIn" href="/#/" class="btn btn-danger">Atras</a>
+</p>

@@ -3,7 +3,7 @@ require('./libros.model');
 require('./users.model');
 require('./prestamos.model');
 // create Mongoose connection to local db
-var dbURI = 'mongodb://localhost/vidzy';
+var dbURI = 'mongodb://localhost/Biblioteca';
 mongoose.connect(dbURI);
 
 // logging

@@ -5,15 +5,22 @@
 
     angular
         .module('Biblioteca')
-        .controller('prestamoHomeCtrl', prestamoHomeCtrl);
+        .controller('homePrestamoCtrl', homePrestamoCtrl);
 
-    homeCtrl.$inject = ['$scope', '$resource', '$location'];
+    homePrestamoCtrl.$inject = ['$scope', '$resource', '$location', 'authentication'];
 
-    function homeCtrl($scope, $resource, $location) {
+    function homePrestamoCtrl($scope, $resource, $location, authentication) {
         var vm = this;
 
-        vm.prestamos = $resource('/api/prestamos');
-        vm.prestamos.query(function(prestamos) {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.logout = function() {
+            authentication.logout();
+            $location.path('/#/');
+        };
+
+        vm.Prestamos = $resource('/api/prestamos');
+        vm.Prestamos.query(function(prestamos) {
             $scope.prestamos = prestamos;
         });
     }

@@ -2,22 +2,27 @@
 
     angular
         .module('Biblioteca')
-        .controller('addlibroCtrl', addlibroCtrl);
+        .controller('addLibroCtrl', addLibroCtrl);
 
-    addlibroCtrl.$inject = ['$scope', '$resource', '$location'];
+    addLibroCtrl.$inject = ['$scope', '$resource', '$location', 'authentication'];
 
-    function addlibroCtrl($scope, $resource, $location) {
+    function addLibroCtrl($scope, $resource, $location, authentication) {
         var vm = this;
 
-        vm.libros = $resource('/api/libros', null, {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.Libros = $resource('/api/libros', null, {
             save: {
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
         $scope.save = function() {
-            vm.libros.save($scope.libro, function() {
-                $location.path('/#/');
+            vm.Libros.save($scope.libro, function() {
+                $location.path('/#/libros');
             });
         };
     }

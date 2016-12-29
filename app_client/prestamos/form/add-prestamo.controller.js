@@ -2,22 +2,27 @@
 
     angular
         .module('Biblioteca')
-        .controller('addprestamoCtrl', addprestamoCtrl);
+        .controller('addPrestamoCtrl', addPrestamoCtrl);
 
-    addprestamoCtrl.$inject = ['$scope', '$resource', '$location'];
+    addPrestamoCtrl.$inject = ['$scope', '$resource', '$location', 'authentication'];
 
-    function addprestamoCtrl($scope, $resource, $location) {
+    function addPrestamoCtrl($scope, $resource, $location, authentication) {
         var vm = this;
 
-        vm.prestamos = $resource('/api/prestamos', null, {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.Prestamos = $resource('/api/prestamos', null, {
             save: {
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + authentication.getToken()
+                }
             }
         });
 
         $scope.save = function() {
-            vm.prestamos.save($scope.prestamo, function() {
-                $location.path('/#/');
+            vm.Prestamos.save($scope.prestamo, function() {
+                $location.path('/#/prestamos');
             });
         };
     }

@@ -1,29 +1,31 @@
-<h1>prestamos</h1>
-<h1>Agregar / Editar prestamos</h1>
+<h1>Libros</h1>
+<h1>Agregar / Editar Libros</h1>
 
 <form>
     <div class="form-group">
-        <label>Titulo</label>
-        <input class="form-control" ng-model="prestamo.titulo" />
+        <label>Codigo</label>
+        <input class="form-control" ng-model="prestamo.codigo" />
     </div>
     <div class="form-group">
-        <label>autor</label>
-        <input class="form-control" ng-model="prestamo.autor"/>
+        <label>Usuario</label>
+        <input class="form-control" ng-model="prestamo.usuario"/>
     </div>
     <div class="form-group">
-        <label>editorial</label>
-        <input class="form-control" ng-model="prestamo.editorial"/>
+        <label>Libro</label>
+        <input class="form-control" ng-model="prestamo.libro"/>
     </div>
     <div class="form-group">
-        <label>cantidad</label>
-        <input class="form-control" ng-model="prestamo.cantidad"/>
+        <label>Fecha Salida</label>
+        <input class="form-control" ng-model="prestamo.fechasalida"/>
     </div>
     <div class="form-group">
-        <label>categoria</label>
-        <input class="form-control" ng-model="prestamo.categoria"/>
+        <label>Fecha Devolucion</label>
+        <input class="form-control" ng-model="prestamo.fechadevolucion"/>
     </div>
-    <input type="button" class="btn btn-primary" value="Save" ng-click="save()" />
-    <p>
-        <a href="/#/">Back</a>
-    </p>
+    <div class="form-group">
+        <label>Estado</label>
+        <input class="form-control" ng-model="prestamo.estado"/>
+    </div>
+    <input type="button" class="btn btn-primary" value="Guardar" ng-click="save()" />  <a href="/#/prestamos" class="btn btn-danger">Atras</a>
+
 </form>

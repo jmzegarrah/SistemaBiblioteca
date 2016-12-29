@@ -24,7 +24,7 @@
         vm.onSubmit = function() {
             vm.formError = "";
             if (!vm.credentials.name || !vm.credentials.email || !vm.credentials.password) {
-                vm.formError = "All fields required, please try again";
+                vm.formError = "Es necesario llenar todos los campos";
                 return false;
             } else {
                 vm.doRegister();

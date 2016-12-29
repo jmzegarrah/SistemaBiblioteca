@@ -13,7 +13,7 @@ var prestamoSchema = new mongoose.Schema({
         required: true
     },
     fechasalida: {
-        type: Number,
+        type: String,
         required: true
     },
     fechadevolucion: {

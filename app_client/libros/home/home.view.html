@@ -1,14 +1,17 @@
 <h1>Libros</h1>
 <p>
-    <a href="/#/add-libro">Agregar Libro</a>
+    <a ng-show="vm.isLoggedIn" href="/#/add-libro">Add a libro</a>
 </p>
 <ul>
     <li ng-repeat='libro in libros'>
         <a href="/#/libro/{{libro._id}}">
       {{libro.titulo}}
     </a>
-        <a href="/#/libro/delete/{{libro._id}}">
+        <a ng-show="vm.isLoggedIn" href="/#/libro/delete/{{libro._id}}">
             <i class="glyphicon glyphicon-remove">&nbsp;</i>
         </a>
     </li>
 </ul>
+<p>
+<a ng-show="vm.isLoggedIn" href="/#/" class="btn btn-danger">Atras</a>
+</p>

@@ -5,15 +5,22 @@
 
     angular
         .module('Biblioteca')
-        .controller('libroHomeCtrl', libroHomeCtrl);
+        .controller('homeLibroCtrl', homeLibroCtrl);
 
-    homeCtrl.$inject = ['$scope', '$resource', '$location'];
+    homeLibroCtrl.$inject = ['$scope', '$resource', '$location', 'authentication'];
 
-    function homeCtrl($scope, $resource, $location) {
+    function homeLibroCtrl($scope, $resource, $location, authentication) {
         var vm = this;
 
-        vm.libros = $resource('/api/libros');
-        vm.libros.query(function(libros) {
+        vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.logout = function() {
+            authentication.logout();
+            $location.path('/#/');
+        };
+
+        vm.Libros = $resource('/api/libros');
+        vm.Libros.query(function(libros) {
             $scope.libros = libros;
         });
     }

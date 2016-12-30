@@ -15,6 +15,16 @@ var http = require('http');
 //var port = normalizePort(process.env.PORT || '3000');
 var port = (process.env.PORT || '3000');
 app.set('port', port);
+//app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function(request, response) {
+  response.render('pages/index');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Ejecutandose en el puerto: ', app.get('port'));
+});
+
 
 /**
  * Create HTTP server.
@@ -26,9 +36,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+//server.listen(port);
+//server.on('error', onError);
+//server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.

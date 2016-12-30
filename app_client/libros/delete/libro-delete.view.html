@@ -1,12 +1,36 @@
-<h1>Eliminar Libro</h1>
-<p>
-    ¿Esta seguro de eliminar este libro?
-</p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/#libros">Libros</a></li>
+      <li class=""><a href="/#add-libro">Añadir Libro</a></li>
+      <li class=""><a href="/#prestamos">Prestamos</a></li>
+      <li class=""><a href="/#add-prestamo">Añadir Prestamos</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/"><span class="glyphicon glyphicon-log-in" ng-click="vm.logout()"></span>SALIR</a></li>
+    </ul>
+    </div>
+  </nav>
 
-<ul>
-    <li>titulo: {{libro.titulo}}</li>
-    <li>autor: {{libro.autor}}</li>
-</ul>
+  <div class="col-md-4 col-md-offset-4">
+    <h3 align="center">Eliminar <b>{{libro.titulo}}</b></h3>
+    <p align="center">¿Esta seguro de eliminar este libro?</p>
 
-<button class="btn btn-danger" ng-click="delete()">Si, Eliminar</button>
-<a class="btn btn-default" href="/#/libros/">No, Volver</a>
+    <ul class="list-group">
+        <li class="list-group-item">TITULO:<b> {{libro.titulo}}</b></li>
+        <li class="list-group-item">AUTOR:<b> {{libro.autor}}</b></li>
+        <li class="list-group-item">EDITORIAL:<b> {{libro.editorial}}</b></li>
+        <li class="list-group-item">CATEGORIA:<b> {{libro.categoria}}</b></li>
+        <li class="list-group-item">CANTIDAD:<b> {{libro.cantidad}}</b></li>
+    </ul>
+    <div align="center">
+      <button class="btn btn-danger" ng-click="delete()">Eliminar</button>
+      <a class="btn btn-default" href="/#/libros/">Cancelar</a>
+    </div>
+  </div>
+
+</div>

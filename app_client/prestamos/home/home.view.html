@@ -1,21 +1,44 @@
-<h1>Prestamos</h1>
-<p>
-  <p ng-hide="vm.isLoggedIn">Por favor, Inicie Sesion o Registrese para ver el contenido.</p><br><br><br><br>
-  <p>
-      <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a> <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
-  </p>
-    <a ng-show="vm.isLoggedIn" href="/#/add-prestamo">Agregar un prestamo</a>
-</p>
-<ul>
-    <li ng-repeat='prestamo in prestamos'>
-        <a href="/#/prestamo/{{prestamo._id}}">
-      {{prestamo.codigo}}
-    </a>
-        <a ng-show="vm.isLoggedIn" href="/#/prestamo/delete/{{prestamo._id}}">
-            <i class="glyphicon glyphicon-remove">&nbsp;</i>
-        </a>
-    </li>
-</ul>
-<p>
-<a ng-show="vm.isLoggedIn" href="/#/" class="btn btn-danger">Atras</a>
-</p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+    <ul class="nav navbar-nav">
+      <li class=""><a href="/#libros">Libros</a></li>
+      <li class=""><a href="/#add-libro">Añadir Libro</a></li>
+      <li class="active"><a href="/#prestamos">Prestamos</a></li>
+      <li class=""><a href="/#add-prestamo">Añadir Prestamos</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/"><span class="glyphicon glyphicon-log-in"></span>SALIR</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Usuario</th>
+        <th>Libro</th>
+        <th>Fec. Salida</th>
+        <th>Fec. Devolucion</th>
+        <th>Estado</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="prestamo in prestamos">
+            <td>{{prestamo.codigo}}</td>
+            <td>{{prestamo.usuario}}</td>
+            <td>{{prestamo.libro}}</td>
+            <td>{{prestamo.fechasalida}}</td>
+            <td>{{prestamo.fechadevolucion}}</td>
+            <td>{{prestamo.estado}}</td>
+            <td><button class="btn btn-danger"><a style="text-decoration:none; color:#fff"  href="/#/prestamo/delete/{{prestamo._id}}">Eliminar</a></button></td>
+            <td><button class="btn btn-warning"><a style="text-decoration:none; color:#fff" href="/#/prestamo/{{prestamo._id}}">Editar</a></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

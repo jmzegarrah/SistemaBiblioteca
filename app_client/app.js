@@ -1,13 +1,13 @@
 (function() {
 
     angular.module('Biblioteca', ['ngResource', 'ngRoute']);
-
+  
     function config($routeProvider) {
         // endpoints are declared here
         $routeProvider
             .when('/', {
-                templateUrl: '/home/home.view.html',
-                controller: 'homeCtrl',
+                templateUrl: '/auth/login/login.view.html',
+                controller: 'loginCtrl',
                 controllerAs: 'vm'
             })
             .when('/libros', {
@@ -58,6 +58,16 @@
             .when('/login', {
                 templateUrl: '/auth/login/login.view.html',
                 controller: 'loginCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/inicio', {
+                templateUrl: '/home/home.view.html',
+                controller: 'homeCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/navegacion', {
+                templateUrl: '/home/navigation.html',
+                controller: 'navCtrl',
                 controllerAs: 'vm'
             })
             .otherwise({

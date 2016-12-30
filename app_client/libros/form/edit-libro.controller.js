@@ -28,6 +28,7 @@
             $scope.libro = libro;
         });
 
+
         $scope.save = function() {
             vm.Libros.update($scope.libro, function() {
                 $location.path('/#/libros');

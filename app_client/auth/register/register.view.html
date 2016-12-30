@@ -1,6 +1,5 @@
-<h1>Registro de nuevo usuario</h1>
-
-<p class="lead">Ya eres usuario? Por favor <a href="/#login?page={{ vm.returnPage }}">Inicia Sesion</a>.</p>
+<div class="col-md-6 col-md-offset-3">
+<h1 align="center">Registro de usuario</h1>
 
 <form ng-submit="vm.onSubmit()">
     <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
@@ -8,6 +7,7 @@
         <label>Nombre Completo</label>
         <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre" ng-model="vm.credentials.name" />
     </div>
+
     <div class="form-group">
         <label>Email</label>
         <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" ng-model="vm.credentials.email" />
@@ -16,5 +16,7 @@
         <label>Contraseña</label>
         <input type="password" class="form-control" id="password" placeholder="Contraseña" ng-model="vm.credentials.password" />
     </div>
-    <button type="submit" class="btn btn-success">Registrar</button> <a href="/#/" class="btn btn-danger">Atras</a>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a href="/#login?page={{ vm.returnPage }}" class="btn btn-link">Iniciar Sesion</a>
 </form>
+</div>

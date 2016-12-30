@@ -18,9 +18,10 @@
             password: ""
         };
 
-        vm.returnPage = $location.search().page || '/';
+        vm.returnPage = $location.search().page || '/libros';
 
         vm.onSubmit = function() {
+          console.log(JSON.stringify(vm.credentials));
             vm.formError = "";
             if (!vm.credentials.email || !vm.credentials.password) {
                 vm.formError = "All fields required, please try again";
@@ -28,6 +29,7 @@
             } else {
                 vm.doLogin();
             }
+            console.log(JSON.stringify(vm.formError));
         };
 
         vm.doLogin = function() {
@@ -38,9 +40,11 @@
                     vm.formError = err;
                 })
                 .then(function() {
-                    $location.search('page', null);
+                  console.log(JSON.stringify(vm));
+                    $location.search('/', null);
                     $location.path(vm.returnPage);
                 });
+                console.log(JSON.stringify(vm.formError));
         };
 
     }

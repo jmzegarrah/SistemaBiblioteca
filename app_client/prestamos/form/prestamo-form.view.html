@@ -1,31 +1,56 @@
-<h1>Biblioteca</h1>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+    <ul class="nav navbar-nav">
+      <li class=""><a href="/#libros">Libros</a></li>
+      <li class=""><a href="/#add-libro">Añadir Libro</a></li>
+      <li class=""><a href="/#prestamos">Prestamos</a></li>
+      <li class="active"><a href="/#add-prestamo">Añadir Prestamos</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/"><span class="glyphicon glyphicon-log-in"></span>SALIR</a></li>
+    </ul>
+    </div>
+  </nav>
+
 <h1>Agregar / Editar Prestamos</h1>
 
-<form>
-    <div class="form-group">
-        <label>Codigo</label>
-        <input class="form-control" ng-model="prestamo.codigo" />
-    </div>
-    <div class="form-group">
-        <label>Usuario</label>
-        <input class="form-control" ng-model="prestamo.usuario"/>
-    </div>
-    <div class="form-group">
-        <label>Libro</label>
-        <input class="form-control" ng-model="prestamo.libro"/>
-    </div>
-    <div class="form-group">
-        <label>Fecha Salida</label>
-        <input class="form-control" ng-model="prestamo.fechasalida"/>
-    </div>
-    <div class="form-group">
-        <label>Fecha Devolucion</label>
-        <input class="form-control" ng-model="prestamo.fechadevolucion"/>
-    </div>
-    <div class="form-group">
-        <label>Estado</label>
-        <input class="form-control" ng-model="prestamo.estado"/>
-    </div>
-    <input type="button" class="btn btn-primary" value="Guardar" ng-click="save()" />  <a href="/#/prestamos" class="btn btn-danger">Atras</a>
+  <div class="col-md-6 col-md-offset-3">
+    <form>
+        <div class="form-group">
+            <label>Codigo</label>
+            <input class="form-control" ng-model="prestamo.codigo" />
+        </div>
+        <div class="form-group">
+            <label>Usuario</label>
+            <input class="form-control" ng-model="prestamo.usuario"/>
+        </div>
+        <div class="form-group">
+            <label>Libro</label>
+            <input class="form-control" ng-model="prestamo.libro"/>
+        </div>
+        <div class="form-group">
+            <label>Fecha Salida</label>
+            <input type="date" class="form-control" ng-model="prestamo.fechasalida"/>
+        </div>
+        <div class="form-group">
+            <label>Fecha Devolucion</label>
+            <input type="date" class="form-control" ng-model="prestamo.fechadevolucion"/>
+        </div>
+        <div class="form-group">
+          <label>Estado</label>
+          <select class="form-control" ng-model="prestamo.estado">
+            <option>Sin entregar</option>
+            <option>Entregado</option>
+            <option>Devuelto</option>
+          </select>
+        </div>
+        <input type="button" class="btn btn-primary" value="Guardar" ng-click="save()" />
+        <a href="/#/prestamos" class="btn btn-default">Atras</a>
 
-</form>
+    </form>
+  </div>
+</div>

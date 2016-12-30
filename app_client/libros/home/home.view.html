@@ -1,22 +1,40 @@
-<h1>Libros</h1>
-<p>
-    <p ng-hide="vm.isLoggedIn">Por favor, Inicie Sesion o Registrese para ver el contenido.</p><br><br><br><br>
-    <p>
-        <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a> <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
-    </p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="/#libros">Libros</a></li>
+    <li class=""><a href="/#add-libro">Añadir Libro</a></li>
+    <li class=""><a href="/#prestamos">Prestamos</a></li>
+    <li class=""><a href="/#add-prestamo">Añadir Prestamos</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#/"><span class="glyphicon glyphicon-log-in"></span>SALIR</a></li>
+  </ul>
+  </div>
+</nav>
 
-    <a ng-show="vm.isLoggedIn" href="/#/add-libro">Agregar un prestamo</a>
-</p>
-<ul>
-    <li ng-repeat='libro in libros'>
-        <a href="/#/libro/{{libro._id}}">
-      {{libro.titulo}}
-    </a>
-        <a ng-show="vm.isLoggedIn" href="/#/libro/delete/{{libro._id}}">
-            <i class="glyphicon glyphicon-remove">&nbsp;</i>
-        </a>
-    </li>
-</ul>
-<p>
-<a ng-show="vm.isLoggedIn" href="/#/" class="btn btn-danger">Atras</a>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>Editorial</th>
+      <th>Cantidad</th>
+      <th>Categoria</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="libro in libros">
+          <td>{{libro.titulo}}</td>
+          <td>{{libro.autor}}</td>
+          <td>{{libro.editorial}}</td>
+          <td>{{libro.cantidad}}</td>
+          <td>{{libro.categoria}}</td>
+          <td><button class="btn btn-danger"><a style="text-decoration:none; color:#fff" href="/#/libro/delete/{{libro._id}}">Eliminar</a></button></td>
+          <td><button class="btn btn-warning"><a style="text-decoration:none; color:#fff" href="/#/libro/{{libro._id}}">Editar</a></button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,8 +1,9 @@
 <h1>Sistema de Biblioteca</h1>
 
-<p>Bienvenido al Sistema de Gestion de Biblioteca.</p>
-<p>Por favor, Inicie Sesion o Registrese para poder hacer uso del sistema.</p>
-<br><br><br><br>
+<p >Bienvenido al Sistema de Gestion de Biblioteca.</p>
+<p ng-hide="vm.isLoggedIn">Por favor, Inicie Sesion o Registrese para poder hacer uso del sistema.</p>
+<p ng-show="vm.isLoggedIn">Ingrese a la seccion que desee utilizar</p>
+<br><br>
 <p>
     <a ng-show="vm.isLoggedIn" href="/#/libros">Libro</a>
 </p>

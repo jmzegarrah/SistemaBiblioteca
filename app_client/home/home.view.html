@@ -1,4 +1,8 @@
-<h1>Libros</h1>
+<h1>Sistema de Biblioteca</h1>
+
+<p>Bienvenido al Sistema de Gestion de Biblioteca.</p>
+<p>Por favor, Inicie Sesion o Registrese para poder hacer uso del sistema.</p>
+<br><br><br><br>
 <p>
     <a ng-show="vm.isLoggedIn" href="/#/libros">Libro</a>
 </p>
@@ -8,9 +12,9 @@
 </p>
 
 <p>
-    <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a>
+    <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a>   <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
     <input ng-show="vm.isLoggedIn" type="button" class="btn btn-primary" value="Salir" ng-click="vm.logout()" />
 </p>
 <p>
-    <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
+
 </p>

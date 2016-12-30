@@ -1,6 +1,11 @@
 <h1>Libros</h1>
 <p>
-    <a ng-show="vm.isLoggedIn" href="/#/add-libro">Add a libro</a>
+    <p ng-hide="vm.isLoggedIn">Por favor, Inicie Sesion o Registrese para ver el contenido.</p><br><br><br><br>
+    <p>
+        <a ng-hide="vm.isLoggedIn" href="/#login" class="btn btn-primary">Iniciar Sesion</a> <a ng-hide="vm.isLoggedIn" href="/#register" class="btn btn-primary">Registro</a>
+    </p>
+
+    <a ng-show="vm.isLoggedIn" href="/#/add-libro">Agregar un prestamo</a>
 </p>
 <ul>
     <li ng-repeat='libro in libros'>

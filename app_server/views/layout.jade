@@ -7,6 +7,30 @@ html(ng-app='Biblioteca')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-        script(src='/angular/vidzy.min.js')
+        script(src='/angular/biblioteca.min.js')
     body
+        nav.navbar.navbar-default
+            .container-fluid
+            .navbar-header
+            a.navbar-brand(href='/#/') Sistema de Biblioteca
+            ul.nav.navbar-nav
+                li
+                    a(href='/#/') Inicio
+                li
+                    a(href='/#/libros') Libros
+                li
+                    a(href='/#/prestamos') Prestamos
+                li
+                    a(href='#') Page 3
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href='/#/register')
+                        span.glyphicon.glyphicon-user
+                        |  Registrarse
+                li
+                    a(href='/#login')
+                        span.glyphicon.glyphicon-log-out
+                        |  Ingresar
+        
+    
         block content
